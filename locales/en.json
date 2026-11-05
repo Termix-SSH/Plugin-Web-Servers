@@ -94,6 +94,7 @@
     "empty": "No sites yet.",
     "loadFailed": "Could not load the sites.",
     "off": "Off",
+    "anyName": "any name",
     "form": "Form",
     "certDays_one": "{{count}} day left",
     "certDays_other": "{{count}} days left",

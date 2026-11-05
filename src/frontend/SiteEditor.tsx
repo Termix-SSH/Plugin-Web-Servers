@@ -31,6 +31,7 @@ import {
   previewSite,
   updateSite,
 } from "./api";
+import { dropSpec } from "../shared/spec";
 import { SERVER_LABEL } from "./format";
 import { Loading } from "./Loading";
 import type { Runner } from "./WebServersTab";
@@ -99,7 +100,7 @@ export function SiteEditor({
     void getSite(hostId, site.server, site.name)
       .then((data) => {
         if (!live) return;
-        setText(data.content);
+        setText(dropSpec(data.content));
         setFile(data.file);
         if (data.spec) setSpec({ ...blankSpec(status), ...data.spec });
         setMode(data.spec ? "form" : "text");

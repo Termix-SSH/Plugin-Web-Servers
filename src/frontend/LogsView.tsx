@@ -178,7 +178,7 @@ export function LogsView({
       )}
       {stats && (
         <div className="border-b border-border">
-          <TileWall minWidth={140}>
+          <TileWall gridClassName="grid-cols-2 sm:grid-cols-5">
             <StatTile label={t("logs.requests")} value={stats.lines} />
             <StatTile label="2xx" value={stats.status["2xx"]} tone="ok" />
             <StatTile label="3xx" value={stats.status["3xx"]} />

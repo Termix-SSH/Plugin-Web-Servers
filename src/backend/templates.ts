@@ -1,9 +1,9 @@
 import { HostScriptError } from "@termix-ssh/plugin-sdk/host-scripts";
+import { SPEC_MARK, SPEC_NOTE as NOTE, dropSpec } from "../shared/spec.js";
 import type { ServerInfo, SiteSpec } from "../shared/types.js";
 
-const SPEC_MARK = "# termix-site: ";
-const NOTE =
-  "# Made in Termix Web Servers. Edit it there to keep the site form in step.";
+export { dropSpec };
+
 const GZIP_TYPES =
   "text/plain text/css text/xml application/javascript application/json application/xml image/svg+xml";
 
@@ -31,13 +31,6 @@ export function readSpec(content: string): SiteSpec | null {
   } catch {
     return null;
   }
-}
-
-/** Text saved by hand loses the form values, so the form can not undo it. */
-export function dropSpec(content: string): string {
-  const lines = content.split("\n");
-  if (!lines[0]?.startsWith(SPEC_MARK)) return content;
-  return lines.slice(lines[1] === NOTE ? 2 : 1).join("\n");
 }
 
 function specLine(spec: SiteSpec): string {

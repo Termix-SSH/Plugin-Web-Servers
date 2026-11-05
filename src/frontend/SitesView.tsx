@@ -156,7 +156,9 @@ export function SitesView({
                 </>
               }
               meta={[
-                site.names.join(" "),
+                site.names
+                  .map((n) => (n === "_" ? t("sites.anyName") : n))
+                  .join(" "),
                 compact ? "" : site.upstream || site.root,
               ]
                 .filter(Boolean)

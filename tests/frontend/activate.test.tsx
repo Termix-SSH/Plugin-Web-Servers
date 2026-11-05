@@ -141,6 +141,42 @@ describe(`${manifest.id} activate`, () => {
     expect(screen.getByText(locales.site.modeText)).toBeTruthy();
   });
 
+  it("registers the dashboard card, panel action and Host Metrics card", async () => {
+    rendered = await renderWithApp(plugin, { manifest, locales });
+    expect(rendered.registered.dashboardCards()).toEqual(["web-servers-hosts"]);
+    expect(rendered.registered.actions()).toContain("web-servers.togglePanel");
+    expect(rendered.registered.slot("host-metrics.managers")).toEqual([
+      "webserver_manager",
+    ]);
+  });
+
+  it("shows each host's servers on the dashboard card", async () => {
+    rendered = await renderWithApp(plugin, {
+      manifest,
+      locales,
+      permissions: ["web-servers.use"],
+      hosts: [{ id: "1", name: "web", ip: "10.0.0.1", port: 22 }],
+      api: {
+        get: vi.fn(async () => ({
+          data: [
+            {
+              hostId: 1,
+              checkedAt: new Date().toISOString(),
+              servers: [
+                { kind: "nginx", version: "1.26.3", state: "active", sites: 2 },
+                { kind: "caddy", version: "2.6.2", state: "failed", sites: 1 },
+              ],
+            },
+          ],
+        })),
+      } as never,
+    });
+    rendered.renderDashboardCard("web-servers-hosts");
+    expect(await screen.findByText("web")).toBeTruthy();
+    expect(screen.getByText("3 sites")).toBeTruthy();
+    expect(screen.getByText("Caddy")).toBeTruthy();
+  });
+
   it("offers to install a server when none is there", async () => {
     rendered = await renderWithApp(plugin, {
       manifest,
