@@ -207,10 +207,22 @@
               "labelKey": "operations.server",
               "default": "all",
               "options": [
-                { "value": "all", "labelKey": "operations.allServers" },
-                { "value": "nginx", "labelKey": "servers.nginx" },
-                { "value": "apache", "labelKey": "servers.apache" },
-                { "value": "caddy", "labelKey": "servers.caddy" }
+                {
+                  "value": "all",
+                  "labelKey": "operations.allServers"
+                },
+                {
+                  "value": "nginx",
+                  "labelKey": "servers.nginx"
+                },
+                {
+                  "value": "apache",
+                  "labelKey": "servers.apache"
+                },
+                {
+                  "value": "caddy",
+                  "labelKey": "servers.caddy"
+                }
               ]
             }
           ]
@@ -242,10 +254,22 @@
               "labelKey": "operations.server",
               "default": "all",
               "options": [
-                { "value": "all", "labelKey": "operations.allServers" },
-                { "value": "nginx", "labelKey": "servers.nginx" },
-                { "value": "apache", "labelKey": "servers.apache" },
-                { "value": "caddy", "labelKey": "servers.caddy" }
+                {
+                  "value": "all",
+                  "labelKey": "operations.allServers"
+                },
+                {
+                  "value": "nginx",
+                  "labelKey": "servers.nginx"
+                },
+                {
+                  "value": "apache",
+                  "labelKey": "servers.apache"
+                },
+                {
+                  "value": "caddy",
+                  "labelKey": "servers.caddy"
+                }
               ]
             }
           ]
@@ -276,10 +300,22 @@
               "labelKey": "operations.server",
               "default": "all",
               "options": [
-                { "value": "all", "labelKey": "operations.allServers" },
-                { "value": "nginx", "labelKey": "servers.nginx" },
-                { "value": "apache", "labelKey": "servers.apache" },
-                { "value": "caddy", "labelKey": "servers.caddy" }
+                {
+                  "value": "all",
+                  "labelKey": "operations.allServers"
+                },
+                {
+                  "value": "nginx",
+                  "labelKey": "servers.nginx"
+                },
+                {
+                  "value": "apache",
+                  "labelKey": "servers.apache"
+                },
+                {
+                  "value": "caddy",
+                  "labelKey": "servers.caddy"
+                }
               ]
             }
           ]
@@ -383,7 +419,8 @@
           "fix": "web-servers.restart"
         }
       ]
-    }
+    },
+    "uses": ["homepage.widgets"]
   },
   "locales": "locales",
   "platforms": ["linux", "win32", "darwin"]

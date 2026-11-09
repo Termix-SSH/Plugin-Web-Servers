@@ -7,6 +7,7 @@ import { HostsCard } from "./HostsCard";
 import { ManagerCard } from "./ManagerCard";
 import { WebServersCompanion, useCompanionDefaults } from "./WebServersPanel";
 import { WebServersTab } from "./WebServersTab";
+import { webServersWidget } from "./WebServersWidget";
 
 const TAB_ID = "web-servers";
 
@@ -83,4 +84,5 @@ export function activate(app: TermixApp): void {
     kind: "component",
     component: ManagerCard as unknown as ComponentType<Record<string, unknown>>,
   });
+  app.registerExtension("homepage.widgets", webServersWidget);
 }

@@ -191,3 +191,13 @@ describe(`${manifest.id} activate`, () => {
     expect((await screen.findAllByText(locales.server.install)).length).toBe(3);
   });
 });
+
+describe("homepage widget", () => {
+  it("adds a homepage widget and declares the extension point", async () => {
+    rendered = await renderWithApp(plugin, { manifest, locales });
+    expect(rendered.registered.extensions("homepage.widgets")).toEqual([
+      "web_servers_widget",
+    ]);
+    expect(manifest.contributes.uses).toContain("homepage.widgets");
+  });
+});

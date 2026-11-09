@@ -30,6 +30,7 @@ Read the [docs](https://docs.termix.site/plugins/web-servers) to set it up and u
 - Install nginx, Apache, Caddy or certbot
 - Get an alert when a web server stops
 - A dashboard card, a panel beside the terminal and a Web Servers card in Host Metrics
+- Reload, restart and test through Termix actions, with server state as a status tile
 
 <br />
 
