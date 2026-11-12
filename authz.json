@@ -1,0 +1,216 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Termix-SSH/Termix/main/scripts/authz/authz.schema.json",
+  "seed": [],
+  "routes": {
+    "GET /plugin-api/web-servers/:hostId/file": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      }
+    },
+    "PUT /plugin-api/web-servers/:hostId/file": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      }
+    },
+    "GET /plugin-api/web-servers/:hostId/files": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      }
+    },
+    "POST /plugin-api/web-servers/:hostId/install": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      },
+      "destructive": true
+    },
+    "POST /plugin-api/web-servers/:hostId/install-certbot": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      },
+      "destructive": true
+    },
+    "GET /plugin-api/web-servers/:hostId/log": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      }
+    },
+    "GET /plugin-api/web-servers/:hostId/logs": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      }
+    },
+    "POST /plugin-api/web-servers/:hostId/service": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      }
+    },
+    "GET /plugin-api/web-servers/:hostId/sites": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      }
+    },
+    "POST /plugin-api/web-servers/:hostId/sites": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      }
+    },
+    "DELETE /plugin-api/web-servers/:hostId/sites/:server/:name": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      },
+      "destructive": true,
+      "allowed": "any",
+      "note": "Names a server and name on the host, which the test host does not have; host access is still checked"
+    },
+    "GET /plugin-api/web-servers/:hostId/sites/:server/:name": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      },
+      "allowed": "any",
+      "note": "Names a server and name on the host, which the test host does not have; host access is still checked"
+    },
+    "PUT /plugin-api/web-servers/:hostId/sites/:server/:name": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      },
+      "allowed": "any",
+      "note": "Names a server and name on the host, which the test host does not have; host access is still checked"
+    },
+    "POST /plugin-api/web-servers/:hostId/sites/:server/:name/certificate": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      },
+      "allowed": "any",
+      "note": "Names a server and name on the host, which the test host does not have; host access is still checked"
+    },
+    "POST /plugin-api/web-servers/:hostId/sites/:server/:name/disable": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      },
+      "allowed": "any",
+      "note": "Names a server and name on the host, which the test host does not have; host access is still checked"
+    },
+    "POST /plugin-api/web-servers/:hostId/sites/:server/:name/enable": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      },
+      "allowed": "any",
+      "note": "Names a server and name on the host, which the test host does not have; host access is still checked"
+    },
+    "POST /plugin-api/web-servers/:hostId/sites/preview": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      }
+    },
+    "GET /plugin-api/web-servers/:hostId/status": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      }
+    },
+    "POST /plugin-api/web-servers/:hostId/test": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      }
+    },
+    "POST /plugin-api/web-servers/:hostId/watch": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect"
+      }
+    },
+    "GET /plugin-api/web-servers/summary": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "host",
+        "min": "connect",
+        "key": "hostId"
+      },
+      "filtered": true,
+      "note": "Lists only what the caller may see"
+    },
+    "WS /plugin-ws/web-servers/follow": {
+      "access": "user",
+      "permission": "web-servers.use",
+      "resource": {
+        "kind": "own",
+        "fixture": "host"
+      },
+      "send": [
+        {
+          "type": "connect",
+          "data": {
+            "hostConfig": {
+              "id": "{{host}}"
+            },
+            "source": {
+              "kind": "journal",
+              "server": "nginx"
+            }
+          }
+        }
+      ],
+      "refuseReply": "Host not found|Authentication required",
+      "note": "Owner only"
+    }
+  }
+}
