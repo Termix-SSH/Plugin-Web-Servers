@@ -128,5 +128,8 @@ export function startWatchChecker(
       context: { hostId, hostName },
     });
 
-  return ctx.schedule.every(CHECK_MS, check, { jitterMs: 10_000 });
+  return ctx.schedule.every(CHECK_MS, check, {
+    id: "watches",
+    jitterMs: 10_000,
+  });
 }
